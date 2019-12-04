@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4524147C2398754A0011A884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147B2398754A0011A884 /* AppDelegate.swift */; };
-		4524147E2398754A0011A884 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147D2398754A0011A884 /* SceneDelegate.swift */; };
 		452414802398754A0011A884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147F2398754A0011A884 /* ViewController.swift */; };
 		452414832398754A0011A884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452414812398754A0011A884 /* Main.storyboard */; };
 		452414852398754B0011A884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452414842398754B0011A884 /* Assets.xcassets */; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		452414782398754A0011A884 /* Gabbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gabbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4524147B2398754A0011A884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4524147D2398754A0011A884 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4524147F2398754A0011A884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		452414822398754A0011A884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		452414842398754B0011A884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				4524147B2398754A0011A884 /* AppDelegate.swift */,
-				4524147D2398754A0011A884 /* SceneDelegate.swift */,
 				4524147F2398754A0011A884 /* ViewController.swift */,
 				452414812398754A0011A884 /* Main.storyboard */,
 				452414842398754B0011A884 /* Assets.xcassets */,
@@ -202,7 +199,6 @@
 			files = (
 				452414802398754A0011A884 /* ViewController.swift in Sources */,
 				4524147C2398754A0011A884 /* AppDelegate.swift in Sources */,
-				4524147E2398754A0011A884 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
