@@ -19,16 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpWindow() {
-        let rootTabBarVC = RootTabBarController()
+        let rootTabBarViewController = RootTabBarController()
         
-        let homeVC = UINavigationController(rootViewController: HomeTableViewController())
-        let videoChatVC = VideoChatViewController()
-        let profileVC = ProfileViewController()
-        rootTabBarVC.setViewControllers([homeVC, videoChatVC, profileVC], animated: true)
-        rootTabBarVC.selectedIndex = 1
+        let homeNavigationController = UINavigationController(rootViewController: HomeTableViewController())
+        let videoChatViewController = VideoChatViewController()
+        let profileNavigationController = UINavigationController(rootViewController: ProfileTableViewController())
+        rootTabBarViewController.setViewControllers([homeNavigationController, videoChatViewController, profileNavigationController], animated: true)
+        rootTabBarViewController.selectedIndex = 1
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = rootTabBarVC
+        window?.rootViewController = rootTabBarViewController
         window?.makeKeyAndVisible()
     }
 

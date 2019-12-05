@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="186" id="KGk-i7-Jjw" customClass="HomeTableViewCell" customModule="Gabbo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="407" height="186"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="407" height="186"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfd-im-ZTw">
+                        <rect key="frame" x="6" y="6" width="395" height="174"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </subviews>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" secondItem="gfd-im-ZTw" secondAttribute="bottom" constant="6" id="15J-TP-6F8"/>
+                <constraint firstItem="gfd-im-ZTw" firstAttribute="top" secondItem="njF-e1-oar" secondAttribute="top" constant="6" id="2kb-3w-JjB"/>
+                <constraint firstItem="gfd-im-ZTw" firstAttribute="leading" secondItem="njF-e1-oar" secondAttribute="leading" constant="6" id="EF4-tb-CsL"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="gfd-im-ZTw" secondAttribute="trailing" constant="6" id="dNp-7E-wW1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentBackgroundView" destination="gfd-im-ZTw" id="Zpe-yK-Bjw"/>
+            </connections>
+            <point key="canvasLocation" x="200.72463768115944" y="130.58035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

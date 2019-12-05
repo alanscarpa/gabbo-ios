@@ -1,5 +1,5 @@
 //
-//  HomeTableViewController.swift
+//  ProfileTableViewController.swift
 //  Gabbo
 //
 //  Created by Alan Scarpa on 12/4/19.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
-
-    let tableViewRowHeight: CGFloat = 188
+class ProfileTableViewController: UITableViewController {
 
     init() {
         super.init(style: .plain)
-        tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
     }
 
     required init?(coder: NSCoder) {
@@ -24,10 +22,7 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
-        title = "Home"
-
-        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: HomeTableViewCell.cellReuseIdentifier)
-        tableView.rowHeight = tableViewRowHeight
+        title = "Profile"
     }
 
     // MARK: - Table view data source
@@ -36,9 +31,11 @@ class HomeTableViewController: UITableViewController {
         return 100
     }
 
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.cellReuseIdentifier, for: indexPath)
-        cell.textLabel?.text = "gabbo"
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "Profile"
         return cell
     }
+    
 }
