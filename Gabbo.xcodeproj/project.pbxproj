@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4524147C2398754A0011A884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147B2398754A0011A884 /* AppDelegate.swift */; };
-		452414802398754A0011A884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147F2398754A0011A884 /* ViewController.swift */; };
-		452414832398754A0011A884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452414812398754A0011A884 /* Main.storyboard */; };
+		452414802398754A0011A884 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147F2398754A0011A884 /* RootTabBarController.swift */; };
 		452414852398754B0011A884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452414842398754B0011A884 /* Assets.xcassets */; };
 		452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452414862398754B0011A884 /* LaunchScreen.storyboard */; };
 		452414932398754B0011A884 /* GabboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414922398754B0011A884 /* GabboTests.swift */; };
@@ -28,8 +27,7 @@
 /* Begin PBXFileReference section */
 		452414782398754A0011A884 /* Gabbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gabbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4524147B2398754A0011A884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4524147F2398754A0011A884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		452414822398754A0011A884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4524147F2398754A0011A884 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		452414842398754B0011A884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452414872398754B0011A884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452414892398754B0011A884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 		4524149D23987D2F0011A884 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				452414812398754A0011A884 /* Main.storyboard */,
 				452414862398754B0011A884 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -123,7 +120,7 @@
 		452414A123987D7C0011A884 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4524147F2398754A0011A884 /* ViewController.swift */,
+				4524147F2398754A0011A884 /* RootTabBarController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -211,7 +208,6 @@
 			files = (
 				452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */,
 				452414852398754B0011A884 /* Assets.xcassets in Resources */,
-				452414832398754A0011A884 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452414802398754A0011A884 /* ViewController.swift in Sources */,
+				452414802398754A0011A884 /* RootTabBarController.swift in Sources */,
 				4524147C2398754A0011A884 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,14 +249,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		452414812398754A0011A884 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				452414822398754A0011A884 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		452414862398754B0011A884 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -391,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Gabbo/Info.plist;
+				INFOPLIST_FILE = Gabbo/pLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -408,7 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Gabbo/Info.plist;
+				INFOPLIST_FILE = Gabbo/pLists/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
