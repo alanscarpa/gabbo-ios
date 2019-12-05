@@ -22,6 +22,7 @@
 		45FD9C692398B7E7009770F2 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */; };
 		45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */; };
 		45FD9C6D2398BB76009770F2 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */; };
+		45FD9C702398EA3C009770F2 /* PrivateConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C6F2398EA3C009770F2 /* PrivateConstants.swift */; };
 		6D2F50A3DB10B8C1C449D724 /* Pods_Gabbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF4F48D605E0245566B3DFC /* Pods_Gabbo.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
 		45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		45FD9C6E2398E8A6009770F2 /* Gabbo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gabbo.entitlements; sourceTree = "<group>"; };
+		45FD9C6F2398EA3C009770F2 /* PrivateConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateConstants.swift; sourceTree = "<group>"; };
 		BBF4F48D605E0245566B3DFC /* Pods_Gabbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gabbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEF649FAF5CD5450883FFEC3 /* Pods-Gabbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gabbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gabbo/Pods-Gabbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,11 +105,13 @@
 		4524147A2398754A0011A884 /* Gabbo */ = {
 			isa = PBXGroup;
 			children = (
+				45FD9C6E2398E8A6009770F2 /* Gabbo.entitlements */,
 				4524147B2398754A0011A884 /* AppDelegate.swift */,
 				452414A123987D7C0011A884 /* View Controllers */,
 				4524149F23987D620011A884 /* Assets */,
 				4524149E23987D4D0011A884 /* pLists */,
 				4524149D23987D2F0011A884 /* Storyboards */,
+				45FD9C6F2398EA3C009770F2 /* PrivateConstants.swift */,
 			);
 			path = Gabbo;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FD9C682398B7E7009770F2 /* ProfileTableViewController.swift in Sources */,
+				45FD9C702398EA3C009770F2 /* PrivateConstants.swift in Sources */,
 				45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */,
 				45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */,
 				45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */,
@@ -524,6 +530,7 @@
 			baseConfigurationReference = BEF649FAF5CD5450883FFEC3 /* Pods-Gabbo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gabbo/Gabbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Gabbo/pLists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -543,6 +550,7 @@
 			baseConfigurationReference = 4186523122E74955799A3CF6 /* Pods-Gabbo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Gabbo/Gabbo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Gabbo/pLists/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
