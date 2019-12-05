@@ -13,6 +13,8 @@ class VideoChatViewController: UIViewController {
 
     var videoChatRoom: Room?
 
+    // MARK: - UI Lifecycle
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         tabBarItem = UITabBarItem(title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right"), selectedImage: UIImage(systemName: "bubble.left.and.bubble.right.fill"))
@@ -28,17 +30,21 @@ class VideoChatViewController: UIViewController {
         connectToVideoChat()
     }
 
+    // MARK: - Twilio
+
     private func connectToVideoChat() {
         let connectOptions = ConnectOptions(token: PrivateConstants.twilioAccessToken) { builder in
-            // Not needed at the moment but it could be nice to have in the future.
-            // I'm leaving this here as a reminder for now.
-            // TODO: If this is still around 6/1/2020, delete me!
-            // builder.roomName =
+            // TODO: Set the roomName to that of the student username.
+            // The teachers will then be able to select from students actively in rooms,
+            // and connect to them via a simple tableView.
+            builder.roomName = "STUDENT-USERNAME-ROOM" // TODO: Change this when users are active!
         }
         videoChatRoom = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
     }
 
 }
+
+// MARK: - Twilio Room Delegate
 
 extension VideoChatViewController: RoomDelegate {
     func roomDidConnect(room: Room) {
