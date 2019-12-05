@@ -1,0 +1,6 @@
+framework module Pods_Gabbo {
+  umbrella header "Pods-Gabbo-umbrella.h"
+
+  export *
+  module * { export * }
+}

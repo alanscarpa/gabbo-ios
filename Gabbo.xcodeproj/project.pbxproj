@@ -22,6 +22,7 @@
 		45FD9C692398B7E7009770F2 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */; };
 		45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */; };
 		45FD9C6D2398BB76009770F2 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */; };
+		6D2F50A3DB10B8C1C449D724 /* Pods_Gabbo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF4F48D605E0245566B3DFC /* Pods_Gabbo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4186523122E74955799A3CF6 /* Pods-Gabbo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gabbo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gabbo/Pods-Gabbo.release.xcconfig"; sourceTree = "<group>"; };
 		452414782398754A0011A884 /* Gabbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gabbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4524147B2398754A0011A884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4524147F2398754A0011A884 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,8 @@
 		45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
 		45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
+		BBF4F48D605E0245566B3DFC /* Pods_Gabbo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gabbo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEF649FAF5CD5450883FFEC3 /* Pods-Gabbo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gabbo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gabbo/Pods-Gabbo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2F50A3DB10B8C1C449D724 /* Pods_Gabbo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +85,8 @@
 				4524147A2398754A0011A884 /* Gabbo */,
 				452414912398754B0011A884 /* GabboTests */,
 				452414792398754A0011A884 /* Products */,
+				A5DDA9E1F90A0E4B72EF78B0 /* Pods */,
+				52BF3BFB4347983C6B7AD7AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +194,23 @@
 			path = Root;
 			sourceTree = "<group>";
 		};
+		52BF3BFB4347983C6B7AD7AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBF4F48D605E0245566B3DFC /* Pods_Gabbo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5DDA9E1F90A0E4B72EF78B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEF649FAF5CD5450883FFEC3 /* Pods-Gabbo.debug.xcconfig */,
+				4186523122E74955799A3CF6 /* Pods-Gabbo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,9 +218,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 452414972398754B0011A884 /* Build configuration list for PBXNativeTarget "Gabbo" */;
 			buildPhases = (
+				584F8D7113A2CF3C05CD9056 /* [CP] Check Pods Manifest.lock */,
 				452414742398754A0011A884 /* Sources */,
 				452414752398754A0011A884 /* Frameworks */,
 				452414762398754A0011A884 /* Resources */,
+				4FCE394D0663872DD89FE5B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +312,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4FCE394D0663872DD89FE5B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Gabbo/Pods-Gabbo-frameworks.sh",
+				"${PODS_ROOT}/TwilioVideo/Build/iOS/TwilioVideo.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwilioVideo.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gabbo/Pods-Gabbo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		584F8D7113A2CF3C05CD9056 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gabbo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		452414742398754A0011A884 /* Sources */ = {
@@ -448,6 +521,7 @@
 		};
 		452414982398754B0011A884 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEF649FAF5CD5450883FFEC3 /* Pods-Gabbo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +540,7 @@
 		};
 		452414992398754B0011A884 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4186523122E74955799A3CF6 /* Pods-Gabbo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

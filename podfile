@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs'
+
+platform :ios, '13.0'
+use_frameworks!
+
+target 'Gabbo' do
+    pod 'TwilioVideo', '~> 3.0.0'
+end
