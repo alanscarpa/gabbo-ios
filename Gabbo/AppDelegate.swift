@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setUpWindow() {
         let rootTabBarViewController = RootTabBarController()
         
-        let homeNavigationController = UINavigationController(rootViewController: HomeTableViewController())
+        let homeNavigationController = GabboNavigationController(rootViewController: HomeTableViewController())
         let videoChatViewController = VideoChatViewController()
-        let profileNavigationController = UINavigationController(rootViewController: ProfileTableViewController())
+        let profileNavigationController = GabboNavigationController(rootViewController: ProfileTableViewController())
         rootTabBarViewController.setViewControllers([homeNavigationController, videoChatViewController, profileNavigationController], animated: true)
         rootTabBarViewController.selectedIndex = 1
         

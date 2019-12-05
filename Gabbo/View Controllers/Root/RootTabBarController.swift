@@ -8,5 +8,11 @@
 
 import UIKit
 
-class RootTabBarController: UITabBarController {}
+class RootTabBarController: UITabBarController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tabBar.isTranslucent = false
+    }
+}
 
