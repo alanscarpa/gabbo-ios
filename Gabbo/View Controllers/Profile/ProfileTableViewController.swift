@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
+    let tableViewRowHeight: CGFloat = 188
+
     init() {
         super.init(style: .plain)
         tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
@@ -23,6 +25,9 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Profile"
+
+        tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: ProfileTableViewCell.cellReuseIdentifier)
+        tableView.rowHeight = tableViewRowHeight
     }
 
     // MARK: - Table view data source
@@ -33,7 +38,7 @@ class ProfileTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.cellReuseIdentifier, for: indexPath)
         cell.textLabel?.text = "Profile"
         return cell
     }

@@ -20,6 +20,8 @@
 		45FD9C652398B10E009770F2 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C632398B10E009770F2 /* HomeTableViewCell.xib */; };
 		45FD9C682398B7E7009770F2 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C662398B7E7009770F2 /* ProfileTableViewController.swift */; };
 		45FD9C692398B7E7009770F2 /* ProfileTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */; };
+		45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */; };
+		45FD9C6D2398BB76009770F2 /* ProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		45FD9C632398B10E009770F2 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		45FD9C662398B7E7009770F2 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewController.xib; sourceTree = "<group>"; };
+		45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,8 @@
 			children = (
 				45FD9C662398B7E7009770F2 /* ProfileTableViewController.swift */,
 				45FD9C672398B7E7009770F2 /* ProfileTableViewController.xib */,
+				45FD9C6A2398BB76009770F2 /* ProfileTableViewCell.swift */,
+				45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -265,6 +271,7 @@
 				452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */,
 				452414852398754B0011A884 /* Assets.xcassets in Resources */,
 				452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */,
+				45FD9C6D2398BB76009770F2 /* ProfileTableViewCell.xib in Resources */,
 				45FD9C652398B10E009770F2 /* HomeTableViewCell.xib in Resources */,
 				45FD9C692398B7E7009770F2 /* ProfileTableViewController.xib in Resources */,
 				45FD9C612398A5C3009770F2 /* HomeTableViewController.xib in Resources */,
@@ -286,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FD9C682398B7E7009770F2 /* ProfileTableViewController.swift in Sources */,
+				45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */,
 				45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */,
 				45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */,
 				452414802398754A0011A884 /* RootTabBarController.swift in Sources */,
