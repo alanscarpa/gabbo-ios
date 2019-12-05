@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootTabBarController: UITabBarController {
+class GabboTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		450B0ABE2399AA06009FC473 /* GabboNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450B0ABD2399AA06009FC473 /* GabboNavigationController.swift */; };
 		4524147C2398754A0011A884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147B2398754A0011A884 /* AppDelegate.swift */; };
-		452414802398754A0011A884 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147F2398754A0011A884 /* RootTabBarController.swift */; };
+		452414802398754A0011A884 /* GabboTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524147F2398754A0011A884 /* GabboTabBarController.swift */; };
 		452414852398754B0011A884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452414842398754B0011A884 /* Assets.xcassets */; };
 		452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452414862398754B0011A884 /* LaunchScreen.storyboard */; };
 		452414932398754B0011A884 /* GabboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414922398754B0011A884 /* GabboTests.swift */; };
 		452414AB2398998A0011A884 /* VideoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414A92398998A0011A884 /* VideoChatViewController.swift */; };
 		452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414AA2398998A0011A884 /* VideoChatViewController.xib */; };
+		45988BE22399B1A500BDA10E /* GabboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45988BE12399B1A500BDA10E /* GabboTableViewController.swift */; };
 		45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */; };
 		45FD9C612398A5C3009770F2 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */; };
 		45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C622398B10E009770F2 /* HomeTableViewCell.swift */; };
@@ -42,7 +43,7 @@
 		450B0ABD2399AA06009FC473 /* GabboNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboNavigationController.swift; sourceTree = "<group>"; };
 		452414782398754A0011A884 /* Gabbo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gabbo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4524147B2398754A0011A884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4524147F2398754A0011A884 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
+		4524147F2398754A0011A884 /* GabboTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboTabBarController.swift; sourceTree = "<group>"; };
 		452414842398754B0011A884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		452414872398754B0011A884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452414892398754B0011A884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		452414942398754B0011A884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		452414A92398998A0011A884 /* VideoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoChatViewController.swift; sourceTree = "<group>"; };
 		452414AA2398998A0011A884 /* VideoChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoChatViewController.xib; sourceTree = "<group>"; };
+		45988BE12399B1A500BDA10E /* GabboTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
 		45FD9C622398B10E009770F2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 				450B0ABD2399AA06009FC473 /* GabboNavigationController.swift */,
 			);
 			path = "Navigation Controller";
+			sourceTree = "<group>";
+		};
+		450B0ABF2399AF55009FC473 /* TabBar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4524147F2398754A0011A884 /* GabboTabBarController.swift */,
+			);
+			path = "TabBar Controller";
 			sourceTree = "<group>";
 		};
 		4524146F2398754A0011A884 = {
@@ -162,8 +172,9 @@
 		452414A123987D7C0011A884 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				45988BE02399B18D00BDA10E /* TableViewController */,
+				450B0ABF2399AF55009FC473 /* TabBar Controller */,
 				450B0ABC2399A986009FC473 /* Navigation Controller */,
-				452414B1239899A60011A884 /* Root */,
 				452414A4239899640011A884 /* Profile */,
 				452414A32398995C0011A884 /* VideoChat */,
 				452414A2239899500011A884 /* Home */,
@@ -202,12 +213,12 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		452414B1239899A60011A884 /* Root */ = {
+		45988BE02399B18D00BDA10E /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4524147F2398754A0011A884 /* RootTabBarController.swift */,
+				45988BE12399B1A500BDA10E /* GabboTableViewController.swift */,
 			);
-			path = Root;
+			path = TableViewController;
 			sourceTree = "<group>";
 		};
 		52BF3BFB4347983C6B7AD7AB /* Frameworks */ = {
@@ -386,7 +397,8 @@
 				45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */,
 				45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */,
 				45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */,
-				452414802398754A0011A884 /* RootTabBarController.swift in Sources */,
+				45988BE22399B1A500BDA10E /* GabboTableViewController.swift in Sources */,
+				452414802398754A0011A884 /* GabboTabBarController.swift in Sources */,
 				4524147C2398754A0011A884 /* AppDelegate.swift in Sources */,
 				450B0ABE2399AA06009FC473 /* GabboNavigationController.swift in Sources */,
 				452414AB2398998A0011A884 /* VideoChatViewController.swift in Sources */,

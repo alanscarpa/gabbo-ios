@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
+class ProfileTableViewController: GabboTableViewController {
 
     let tableViewRowHeight: CGFloat = 188
 
@@ -27,6 +27,11 @@ class ProfileTableViewController: UITableViewController {
 
         tableView.register(UINib(nibName: "ProfileTableViewCell", bundle: nil), forCellReuseIdentifier: ProfileTableViewCell.cellReuseIdentifier)
         tableView.rowHeight = tableViewRowHeight
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
     }
 
     // MARK: - Table view data source

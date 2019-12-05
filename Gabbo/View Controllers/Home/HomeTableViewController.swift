@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeTableViewController: UITableViewController {
+class HomeTableViewController: GabboTableViewController {
 
     let tableViewRowHeight: CGFloat = 188
 

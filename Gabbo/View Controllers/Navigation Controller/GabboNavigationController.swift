@@ -13,15 +13,17 @@ class GabboNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBar.prefersLargeTitles = true
-        setNavigationBarColor()
+        configureNavigationBarColor()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        setNavigationBarColor()
+        if previousTraitCollection?.hasDifferentColorAppearance(comparedTo: UITraitCollection.current) == true {
+            configureNavigationBarColor()
+        }
     }
 
-    private func setNavigationBarColor() {
+    private func configureNavigationBarColor() {
         navigationBar.barTintColor = UITraitCollection.current.userInterfaceStyle == .dark ? .black : .white
         
         // This is odd behavior.

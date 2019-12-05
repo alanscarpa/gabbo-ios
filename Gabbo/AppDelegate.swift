@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpWindow() {
-        let rootTabBarViewController = RootTabBarController()
+        let rootTabBarViewController = GabboTabBarController()
         
         let homeNavigationController = GabboNavigationController(rootViewController: HomeTableViewController())
         let videoChatViewController = VideoChatViewController()
