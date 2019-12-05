@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setUpWindow() {
         let rootTabBarVC = RootTabBarController()
         
-        let homeVC = HomeViewController()
+        let homeVC = UINavigationController(rootViewController: HomeTableViewController())
         let videoChatVC = VideoChatViewController()
         let profileVC = ProfileViewController()
         rootTabBarVC.setViewControllers([homeVC, videoChatVC, profileVC], animated: true)

@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  HomeTableViewController.swift
 //  Gabbo
 //
 //  Created by Alan Scarpa on 12/4/19.
@@ -8,43 +8,35 @@
 
 import UIKit
 
-class HomeViewController: UITableViewController {
-
-    // MARK: - View Lifecycle
+class HomeTableViewController: UITableViewController {
 
     init() {
         super.init(style: .plain)
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Home"
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 100
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = UITableViewCell()
+        cell.textLabel?.text = "gabbo"
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -62,7 +54,7 @@ class HomeViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+        }    
     }
     */
 
@@ -90,5 +82,5 @@ class HomeViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
