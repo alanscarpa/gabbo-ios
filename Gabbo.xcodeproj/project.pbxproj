@@ -12,6 +12,12 @@
 		452414852398754B0011A884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 452414842398754B0011A884 /* Assets.xcassets */; };
 		452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452414862398754B0011A884 /* LaunchScreen.storyboard */; };
 		452414932398754B0011A884 /* GabboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414922398754B0011A884 /* GabboTests.swift */; };
+		452414A72398997C0011A884 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414A52398997C0011A884 /* HomeViewController.swift */; };
+		452414A82398997C0011A884 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414A62398997C0011A884 /* HomeViewController.xib */; };
+		452414AB2398998A0011A884 /* VideoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414A92398998A0011A884 /* VideoChatViewController.swift */; };
+		452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414AA2398998A0011A884 /* VideoChatViewController.xib */; };
+		452414AF239899920011A884 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414AD239899920011A884 /* ProfileViewController.swift */; };
+		452414B0239899920011A884 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414AE239899920011A884 /* ProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,12 @@
 		4524148E2398754B0011A884 /* GabboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GabboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		452414922398754B0011A884 /* GabboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboTests.swift; sourceTree = "<group>"; };
 		452414942398754B0011A884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		452414A52398997C0011A884 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		452414A62398997C0011A884 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		452414A92398998A0011A884 /* VideoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoChatViewController.swift; sourceTree = "<group>"; };
+		452414AA2398998A0011A884 /* VideoChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoChatViewController.xib; sourceTree = "<group>"; };
+		452414AD239899920011A884 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		452414AE239899920011A884 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +132,47 @@
 		452414A123987D7C0011A884 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4524147F2398754A0011A884 /* RootTabBarController.swift */,
+				452414B1239899A60011A884 /* Root */,
+				452414A4239899640011A884 /* Profile */,
+				452414A32398995C0011A884 /* VideoChat */,
+				452414A2239899500011A884 /* Home */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		452414A2239899500011A884 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				452414A52398997C0011A884 /* HomeViewController.swift */,
+				452414A62398997C0011A884 /* HomeViewController.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		452414A32398995C0011A884 /* VideoChat */ = {
+			isa = PBXGroup;
+			children = (
+				452414A92398998A0011A884 /* VideoChatViewController.swift */,
+				452414AA2398998A0011A884 /* VideoChatViewController.xib */,
+			);
+			path = VideoChat;
+			sourceTree = "<group>";
+		};
+		452414A4239899640011A884 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				452414AD239899920011A884 /* ProfileViewController.swift */,
+				452414AE239899920011A884 /* ProfileViewController.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		452414B1239899A60011A884 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4524147F2398754A0011A884 /* RootTabBarController.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +258,9 @@
 			files = (
 				452414882398754B0011A884 /* LaunchScreen.storyboard in Resources */,
 				452414852398754B0011A884 /* Assets.xcassets in Resources */,
+				452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */,
+				452414B0239899920011A884 /* ProfileViewController.xib in Resources */,
+				452414A82398997C0011A884 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +280,9 @@
 			files = (
 				452414802398754A0011A884 /* RootTabBarController.swift in Sources */,
 				4524147C2398754A0011A884 /* AppDelegate.swift in Sources */,
+				452414AF239899920011A884 /* ProfileViewController.swift in Sources */,
+				452414AB2398998A0011A884 /* VideoChatViewController.swift in Sources */,
+				452414A72398997C0011A884 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

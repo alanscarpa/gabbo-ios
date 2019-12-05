@@ -20,19 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpWindow() {
         let rootTabBarVC = RootTabBarController()
-
-        let homeVC = UIViewController()
-        homeVC.view.backgroundColor = .blue
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
-
-        let videoChatVC = UIViewController()
-        videoChatVC.view.backgroundColor = .red
-        videoChatVC.tabBarItem = UITabBarItem(title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right"), selectedImage: UIImage(systemName: "bubble.left.and.bubble.right.fill"))
-
-        let profileVC = UIViewController()
-        profileVC.view.backgroundColor = .green
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), selectedImage: UIImage(systemName: "person.fill"))
-
+        
+        let homeVC = HomeViewController()
+        let videoChatVC = VideoChatViewController()
+        let profileVC = ProfileViewController()
         rootTabBarVC.setViewControllers([homeVC, videoChatVC, profileVC], animated: true)
         rootTabBarVC.selectedIndex = 1
         
