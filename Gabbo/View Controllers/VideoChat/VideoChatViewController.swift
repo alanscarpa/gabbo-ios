@@ -14,8 +14,13 @@ class VideoChatViewController: UIViewController {
     var videoChatRoom: Room?
     var localAudioTrack = LocalAudioTrack()
     var localDataTrack = LocalDataTrack()
-    var localVideoTrack : LocalVideoTrack?
-    var camera: CameraSource?
+    lazy var localVideoTrack: LocalVideoTrack? = {
+        guard let cameraSource = cameraSource else { return nil }
+        return LocalVideoTrack(source: cameraSource, enabled: true, name: "Camera")
+    }()
+    lazy var cameraSource: CameraSource? = {
+        return CameraSource(options: CameraSourceOptions(block: xcode10PlusBuilder), delegate: self)
+    }()
 
     @IBOutlet weak var remoteView: VideoView!
     @IBOutlet weak var localView: VideoView!
@@ -31,67 +36,43 @@ class VideoChatViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func prepareLocalMedia() {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prepareLocalAudioTrack()
+        prepareLocalVideoTrack()
+    }
+
+    // MARK: - Media Track Preparation
+
+    private func prepareLocalAudioTrack() {
         // We will share local audio and video when we connect to the Room.
-        // Create an audio track.
         if (localAudioTrack == nil) {
             localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
             if (localAudioTrack == nil) {
                 print("Failed to create audio track")
             }
         }
-
-        // Create a video track which captures from the camera.
-        if (localVideoTrack == nil) {
-            self.startPreview()
-        }
     }
 
-    private func startPreview() {
-        let frontCamera = CameraSource.captureDevice(position: .front)
-        let backCamera = CameraSource.captureDevice(position: .back)
+    private func prepareLocalVideoTrack() {
+        guard let cameraSource = cameraSource, let localVideoTrack = localVideoTrack else { return }
 
-        if (frontCamera != nil || backCamera != nil) {
+        // Add renderer to video track for local preview
+        localVideoTrack.addRenderer(self.localView)
 
-            let options = CameraSourceOptions { (builder) in
-                // To support building with Xcode 10.x.
-                #if XCODE_1100
-                if #available(iOS 13.0, *) {
-                    // Track UIWindowScene events for the key window's scene.
-                    // The example app disables multi-window support in the .plist (see UIApplicationSceneManifestKey).
-                    builder.orientationTracker = UserInterfaceTracker(scene: UIApplication.shared.keyWindow!.windowScene!)
-                }
-                #endif
-            }
-            // Preview our local camera track in the local video preview view.
-            camera = CameraSource(options: options, delegate: self)
-            localVideoTrack = LocalVideoTrack(source: camera!, enabled: true, name: "Camera")
+        // Add gesture recognizer to preview view
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCamera))
+        self.localView.addGestureRecognizer(tap)
 
-            // Add renderer to video track for local preview
-            localVideoTrack!.addRenderer(self.localView)
-            //logMessage(messageText: "Video track created")
-
-            if (frontCamera != nil && backCamera != nil) {
-                let tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCamera))
-                self.localView.addGestureRecognizer(tap)
-            }
-
-            camera!.startCapture(device: frontCamera != nil ? frontCamera! : backCamera!) { (captureDevice, videoFormat, error) in
-                if let error = error {
-//                    self.logMessage(messageText: "Capture failed with error.\ncode = \((error as NSError).code) error = \(error.localizedDescription)")
-                } else {
-                    self.localView.shouldMirror = (captureDevice.position == .front)
-                }
+        // Start capturing and displaying the local video preview
+        guard let captureDevice = CameraSource.captureDevice(position: .front) ?? CameraSource.captureDevice(position: .front) else { return }
+        cameraSource.startCapture(device: captureDevice) { (captureDevice, videoFormat, error) in
+            if let error = error {
+                print("Capture failed with error.\ncode = \((error as NSError).code) error = \(error.localizedDescription)")
+            } else {
+                self.localView.shouldMirror = (captureDevice.position == .front)
             }
         }
-        else {
-//            self.logMessage(messageText:"No front or back capture device found!")
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        prepareLocalMedia()
     }
 
     // MARK: - Twilio
@@ -118,24 +99,27 @@ class VideoChatViewController: UIViewController {
 
     // MARK: - Helpers
 
+    // TODO: @alan - Check to see if this is still needed in the future
+    // Dated 12/10/19
+    private func xcode10PlusBuilder(_ builder: CameraSourceOptionsBuilder) {
+        // To support building with Xcode 10.x.
+        #if XCODE_1100
+        if #available(iOS 13.0, *) {
+            // Track UIWindowScene events for the key window's scene.
+            // The example app disables multi-window support in the .plist (see UIApplicationSceneManifestKey).
+            builder.orientationTracker = UserInterfaceTracker(scene: UIApplication.shared.keyWindow!.windowScene!)
+        }
+        #endif
+    }
+
     @objc func flipCamera() {
-        var newDevice: AVCaptureDevice?
-
-        if let camera = self.camera, let captureDevice = camera.device {
-            if captureDevice.position == .front {
-                newDevice = CameraSource.captureDevice(position: .back)
+        guard let cameraSource = self.cameraSource, let captureDevice = cameraSource.device else { return }
+        guard let newDevice = captureDevice.position == .front ? CameraSource.captureDevice(position: .back) : CameraSource.captureDevice(position: .front) else { return }
+        cameraSource.selectCaptureDevice(newDevice) { (captureDevice, videoFormat, error) in
+            if let error = error {
+                print("Error selecting capture device.\ncode = \((error as NSError).code) error = \(error.localizedDescription)")
             } else {
-                newDevice = CameraSource.captureDevice(position: .front)
-            }
-
-            if let newDevice = newDevice {
-                camera.selectCaptureDevice(newDevice) { (captureDevice, videoFormat, error) in
-                    if let error = error {
-//                        self.logMessage(messageText: "Error selecting capture device.\ncode = \((error as NSError).code) error = \(error.localizedDescription)")
-                    } else {
-                        self.localView.shouldMirror = (captureDevice.position == .front)
-                    }
-                }
+                self.localView.shouldMirror = (captureDevice.position == .front)
             }
         }
     }
