@@ -83,7 +83,10 @@ class VideoChatViewController: UIViewController {
     // MARK: - Twilio
 
     private func connectToVideoChat() {
-        let connectOptions = ConnectOptions(token: PrivateConstants.twilioAccessToken) { builder in
+        // TODO: We need to be generating this access coe via server and remove this check
+        // This is for testing only!
+        let accessToken = UIDevice.current.userInterfaceIdiom == .phone ? PrivateConstants.twilioAccessToken : PrivateConstants.twilioAccessToken2
+        let connectOptions = ConnectOptions(token: accessToken) { builder in
             // TODO: Set the roomName to that of the student username.
             // The teachers will then be able to select from students actively in rooms,
             // and connect to them via a simple tableView.
@@ -165,6 +168,7 @@ extension VideoChatViewController: RoomDelegate {
         if let error = error {
             print("Error on disconnect: \(error.localizedDescription)")
         }
+        self.cleanUpRemoteParticipant()
     }
 
     func roomIsReconnecting(room: Room, error: Error) {
@@ -190,8 +194,19 @@ extension VideoChatViewController: RoomDelegate {
     func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
         print("Room \(room.name), Participant \(participant.identity) disconnected")
         if (self.remoteParticipant == participant) {
-            //cleanupRemoteParticipant()
+            cleanUpRemoteParticipant()
         }
+    }
+
+    // MARK: - Helpers
+
+    func cleanUpRemoteParticipant() {
+        if let remoteParticipant = remoteParticipant, !remoteParticipant.videoTracks.isEmpty {
+            let remoteVideoTrack = self.remoteParticipant?.remoteVideoTracks[0].remoteTrack
+            remoteVideoTrack?.removeRenderer(self.remoteView!)
+            // TODO: @alan - show inactive screen with relevant message - Disconnected
+        }
+        self.remoteParticipant = nil
     }
 }
 
@@ -240,6 +255,7 @@ extension VideoChatViewController: RemoteParticipantDelegate {
     // video on to our local view.
     func didSubscribeToVideoTrack(videoTrack: RemoteVideoTrack, publication: RemoteVideoTrackPublication, participant: RemoteParticipant) {
         print("Hooray! Subscribed to the remote participant's video track.")
+        self.remoteView.delegate = self
         videoTrack.addRenderer(self.remoteView)
     }
 }
