@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is needed for video.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone access is needed so people can hear you.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -35,6 +39,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -43,9 +49,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone access is needed so people can hear you.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera access is needed for video.</string>
 </dict>
 </plist>

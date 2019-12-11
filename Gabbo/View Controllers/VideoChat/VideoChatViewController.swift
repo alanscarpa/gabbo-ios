@@ -21,6 +21,7 @@ class VideoChatViewController: UIViewController {
     lazy var cameraSource: CameraSource? = {
         return CameraSource(options: CameraSourceOptions(block: xcode10PlusBuilder), delegate: self)
     }()
+    var remoteParticipant: RemoteParticipant?
 
     @IBOutlet weak var remoteView: VideoView!
     @IBOutlet weak var localView: VideoView!
@@ -38,8 +39,16 @@ class VideoChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpUI()
         prepareLocalAudioTrack()
         prepareLocalVideoTrack()
+        connectToVideoChat()
+    }
+
+    private func setUpUI() {
+        // Add gesture recognizer to preview view
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCamera))
+        self.localView.addGestureRecognizer(tap)
     }
 
     // MARK: - Media Track Preparation
@@ -60,10 +69,6 @@ class VideoChatViewController: UIViewController {
         // Add renderer to video track for local preview
         localVideoTrack.addRenderer(self.localView)
 
-        // Add gesture recognizer to preview view
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.flipCamera))
-        self.localView.addGestureRecognizer(tap)
-
         // Start capturing and displaying the local video preview
         guard let captureDevice = CameraSource.captureDevice(position: .front) ?? CameraSource.captureDevice(position: .front) else { return }
         cameraSource.startCapture(device: captureDevice) { (captureDevice, videoFormat, error) in
@@ -78,7 +83,7 @@ class VideoChatViewController: UIViewController {
     // MARK: - Twilio
 
     private func connectToVideoChat() {
-        let connectOptions = ConnectOptions(token: PrivateConstants.twilioAccessToken2) { builder in
+        let connectOptions = ConnectOptions(token: PrivateConstants.twilioAccessToken) { builder in
             // TODO: Set the roomName to that of the student username.
             // The teachers will then be able to select from students actively in rooms,
             // and connect to them via a simple tableView.
@@ -92,6 +97,26 @@ class VideoChatViewController: UIViewController {
             }
             if let videoTrack = self.localVideoTrack {
                 builder.videoTracks = [videoTrack]
+            }
+
+            // Use the preferred audio codec
+            if let preferredAudioCodec = TwilioSettings.shared.audioCodec {
+                builder.preferredAudioCodecs = [preferredAudioCodec]
+            }
+
+            // Use the preferred video codec
+            if let preferredVideoCodec = TwilioSettings.shared.videoCodec {
+                builder.preferredVideoCodecs = [preferredVideoCodec]
+            }
+
+            // Use the preferred encoding parameters
+            if let encodingParameters = TwilioSettings.shared.getEncodingParameters() {
+                builder.encodingParameters = encodingParameters
+            }
+
+            // Use the preferred signaling region
+            if let signalingRegion = TwilioSettings.shared.signalingRegion {
+                builder.region = signalingRegion
             }
         }
         videoChatRoom = TwilioVideoSDK.connect(options: connectOptions, delegate: self)
@@ -131,6 +156,8 @@ class VideoChatViewController: UIViewController {
 extension VideoChatViewController: RoomDelegate {
     func roomDidConnect(room: Room) {
         print("Yay! We connected to \(room.name)")
+        self.remoteParticipant = room.remoteParticipants.first
+        self.remoteParticipant?.delegate = self
     }
 
     func roomDidDisconnect(room: Room, error: Error?) {
@@ -140,12 +167,31 @@ extension VideoChatViewController: RoomDelegate {
         }
     }
 
+    func roomIsReconnecting(room: Room, error: Error) {
+        print("Reconnecting to room \(room.name), error = \(String(describing: error))")
+    }
+
+    func roomDidReconnect(room: Room) {
+        print("Reconnected to room \(room.name)")
+    }
+
     func roomDidFailToConnect(room: Room, error: Error) {
         print("Oh no! Failed to connect with error: \(error.localizedDescription)")
     }
 
     func participantDidConnect(room: Room, participant: RemoteParticipant) {
         print("Someone connected to our room!")
+        if (self.remoteParticipant == nil) {
+            self.remoteParticipant = participant
+            self.remoteParticipant?.delegate = self
+        }
+    }
+
+    func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
+        print("Room \(room.name), Participant \(participant.identity) disconnected")
+        if (self.remoteParticipant == participant) {
+            //cleanupRemoteParticipant()
+        }
     }
 }
 
@@ -171,17 +217,30 @@ extension VideoChatViewController: CameraSourceDelegate {
 // MARK: - RemoteParticipantDelegate
 
 extension VideoChatViewController: RemoteParticipantDelegate {
+    func remoteParticipantDidPublishVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
+        // Remote Participant has offered to share the video Track.
+        print("Participant \(participant.identity) published video track")
+    }
+
+    func remoteParticipantDidUnpublishVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
+        // Remote Participant has stopped sharing the video Track.
+        print("Participant \(participant.identity) unpublished video track")
+    }
+
+    func remoteParticipantDidPublishAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
+        // Remote Participant has offered to share the audio Track.
+        print("Participant \(participant.identity) published audio track")
+    }
+
+    func remoteParticipantDidUnpublishAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
+        print("Participant \(participant.identity) unpublished audio track")
+    }
 
     // This is where we start rendering the remote participant's
     // video on to our local view.
     func didSubscribeToVideoTrack(videoTrack: RemoteVideoTrack, publication: RemoteVideoTrackPublication, participant: RemoteParticipant) {
         print("Hooray! Subscribed to the remote participant's video track.")
-//        if let remoteView = VideoView.init(frame: self.view.bounds, delegate: self) {
-//            remoteView.contentMode = .scaleAspectFill
-//            videoTrack.addRenderer(remoteView)
-//            self.view.addSubview(remoteView)
-//            self.remoteView = remoteView
-//        }
+        videoTrack.addRenderer(self.remoteView)
     }
 }
 

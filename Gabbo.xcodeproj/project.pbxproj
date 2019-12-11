@@ -15,6 +15,7 @@
 		452414932398754B0011A884 /* GabboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414922398754B0011A884 /* GabboTests.swift */; };
 		452414AB2398998A0011A884 /* VideoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452414A92398998A0011A884 /* VideoChatViewController.swift */; };
 		452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414AA2398998A0011A884 /* VideoChatViewController.xib */; };
+		454EA4B823A0922400D839B4 /* TwilioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EA4B723A0922400D839B4 /* TwilioSettings.swift */; };
 		45988BE22399B1A500BDA10E /* GabboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45988BE12399B1A500BDA10E /* GabboTableViewController.swift */; };
 		45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */; };
 		45FD9C612398A5C3009770F2 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */; };
@@ -52,6 +53,7 @@
 		452414942398754B0011A884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		452414A92398998A0011A884 /* VideoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoChatViewController.swift; sourceTree = "<group>"; };
 		452414AA2398998A0011A884 /* VideoChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoChatViewController.xib; sourceTree = "<group>"; };
+		454EA4B723A0922400D839B4 /* TwilioSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioSettings.swift; sourceTree = "<group>"; };
 		45988BE12399B1A500BDA10E /* GabboTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		4524147A2398754A0011A884 /* Gabbo */ = {
 			isa = PBXGroup;
 			children = (
+				454EA4B623A0921500D839B4 /* Utilities */,
 				45FD9C6E2398E8A6009770F2 /* Gabbo.entitlements */,
 				4524147B2398754A0011A884 /* AppDelegate.swift */,
 				452414A123987D7C0011A884 /* View Controllers */,
@@ -211,6 +214,14 @@
 				45FD9C6B2398BB76009770F2 /* ProfileTableViewCell.xib */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		454EA4B623A0921500D839B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				454EA4B723A0922400D839B4 /* TwilioSettings.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		45988BE02399B18D00BDA10E /* TableViewController */ = {
@@ -395,6 +406,7 @@
 				45FD9C682398B7E7009770F2 /* ProfileTableViewController.swift in Sources */,
 				45FD9C702398EA3C009770F2 /* PrivateConstants.swift in Sources */,
 				45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */,
+				454EA4B823A0922400D839B4 /* TwilioSettings.swift in Sources */,
 				45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */,
 				45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */,
 				45988BE22399B1A500BDA10E /* GabboTableViewController.swift in Sources */,
