@@ -25,6 +25,7 @@ class VideoChatViewController: UIViewController {
 
     @IBOutlet weak var remoteView: VideoView!
     @IBOutlet weak var localView: VideoView!
+    @IBOutlet weak var loadingView: ChatLoadingView!
 
     // MARK: - UI Lifecycle
 
@@ -55,11 +56,10 @@ class VideoChatViewController: UIViewController {
 
     private func prepareLocalAudioTrack() {
         // We will share local audio and video when we connect to the Room.
+        guard localAudioTrack == nil else { return }
+        localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
         if (localAudioTrack == nil) {
-            localAudioTrack = LocalAudioTrack(options: nil, enabled: true, name: "Microphone")
-            if (localAudioTrack == nil) {
-                print("Failed to create audio track")
-            }
+            print("Failed to create audio track")
         }
     }
 
@@ -83,8 +83,11 @@ class VideoChatViewController: UIViewController {
     // MARK: - Twilio
 
     private func connectToVideoChat() {
-        // TODO: We need to be generating this access coe via server and remove this check
+        // TODO: We need to be generating this access code via server and remove this check
         // This is for testing only!
+
+        loadingView.setStatus(.connecting)
+
         let accessToken = UIDevice.current.userInterfaceIdiom == .phone ? PrivateConstants.twilioAccessToken : PrivateConstants.twilioAccessToken2
         let connectOptions = ConnectOptions(token: accessToken) { builder in
             // TODO: Set the roomName to that of the student username.
@@ -161,6 +164,7 @@ extension VideoChatViewController: RoomDelegate {
         print("Yay! We connected to \(room.name)")
         self.remoteParticipant = room.remoteParticipants.first
         self.remoteParticipant?.delegate = self
+        loadingView.setStatus(.connected)
     }
 
     func roomDidDisconnect(room: Room, error: Error?) {
@@ -169,26 +173,30 @@ extension VideoChatViewController: RoomDelegate {
             print("Error on disconnect: \(error.localizedDescription)")
         }
         self.cleanUpRemoteParticipant()
+        loadingView.setStatus(.disconnected)
     }
 
     func roomIsReconnecting(room: Room, error: Error) {
         print("Reconnecting to room \(room.name), error = \(String(describing: error))")
+        loadingView.setStatus(.reconnecting)
     }
 
     func roomDidReconnect(room: Room) {
         print("Reconnected to room \(room.name)")
+        loadingView.setStatus(.reconnected)
     }
 
     func roomDidFailToConnect(room: Room, error: Error) {
         print("Oh no! Failed to connect with error: \(error.localizedDescription)")
+        loadingView.setStatus(.failedToConnect)
     }
 
     func participantDidConnect(room: Room, participant: RemoteParticipant) {
         print("Someone connected to our room!")
-        if (self.remoteParticipant == nil) {
-            self.remoteParticipant = participant
-            self.remoteParticipant?.delegate = self
-        }
+        guard self.remoteParticipant == nil else { return }
+        self.remoteParticipant = participant
+        self.remoteParticipant?.delegate = self
+        loadingView.setStatus(.participantConnected)
     }
 
     func participantDidDisconnect(room: Room, participant: RemoteParticipant) {
@@ -196,6 +204,7 @@ extension VideoChatViewController: RoomDelegate {
         if (self.remoteParticipant == participant) {
             cleanUpRemoteParticipant()
         }
+        loadingView.setStatus(.disconnected)
     }
 
     // MARK: - Helpers
@@ -215,12 +224,12 @@ extension VideoChatViewController: RoomDelegate {
 extension VideoChatViewController: CameraSourceDelegate {
     func cameraSourceWasInterrupted(source: CameraSource, reason: AVCaptureSession.InterruptionReason) {
         localVideoTrack?.isEnabled = false
-        // TODO: Show a "pause" screen here in the future.
+        loadingView.setStatus(.paused)
     }
 
     func cameraSourceInterruptionEnded(source: CameraSource) {
         localVideoTrack?.isEnabled = true
-        // TODO: Remove "pause" screen here in the future.
+        loadingView.setStatus(.active)
     }
 
     func cameraSourceDidFail(source: CameraSource, error: Error) {
@@ -240,6 +249,7 @@ extension VideoChatViewController: RemoteParticipantDelegate {
     func remoteParticipantDidUnpublishVideoTrack(participant: RemoteParticipant, publication: RemoteVideoTrackPublication) {
         // Remote Participant has stopped sharing the video Track.
         print("Participant \(participant.identity) unpublished video track")
+        loadingView.setStatus(.unpublished)
     }
 
     func remoteParticipantDidPublishAudioTrack(participant: RemoteParticipant, publication: RemoteAudioTrackPublication) {
@@ -263,10 +273,9 @@ extension VideoChatViewController: RemoteParticipantDelegate {
 // MARK: - VideoViewDelegate
 
 extension VideoChatViewController: VideoViewDelegate {
-    // Only called once when we receive the first frame of video.
     func videoViewDidReceiveData(view: VideoView) {
         print("First frame of video received!")
-        // TODO: Update UI and remove potential "Loading" view
+        loadingView.setStatus(.active)
     }
 
     func videoViewDimensionsDidChange(view: VideoView, dimensions: CMVideoDimensions) {

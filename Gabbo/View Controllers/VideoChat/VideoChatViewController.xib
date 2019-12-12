@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoChatViewController" customModule="Gabbo" customModuleProvider="target">
             <connections>
+                <outlet property="loadingView" destination="1hv-l6-ERE" id="WMi-bA-cYA"/>
                 <outlet property="localView" destination="jda-gO-BWn" id="AD7-Mq-KEU"/>
                 <outlet property="remoteView" destination="YqV-A8-IcX" id="9il-HG-evg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,6 +24,26 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hv-l6-ERE" userLabel="Loading View" customClass="ChatLoadingView" customModule="Gabbo" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OCr-b0-ifW" userLabel="Loading Label">
+                            <rect key="frame" x="24" y="388" width="366" height="42"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="OCr-b0-ifW" firstAttribute="leading" secondItem="1hv-l6-ERE" secondAttribute="leading" constant="24" id="FKr-Nm-VbI"/>
+                        <constraint firstAttribute="trailing" secondItem="OCr-b0-ifW" secondAttribute="trailing" constant="24" id="FV8-J1-vkN"/>
+                        <constraint firstItem="OCr-b0-ifW" firstAttribute="centerY" secondItem="1hv-l6-ERE" secondAttribute="centerY" id="ok5-ww-XMj"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="statusLabel" destination="OCr-b0-ifW" id="jKd-im-8RD"/>
+                    </connections>
+                </view>
                 <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jda-gO-BWn" userLabel="Local View" customClass="TVIVideoView">
                     <rect key="frame" x="12" y="678" width="120" height="172"/>
                     <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -35,9 +56,13 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="YqV-A8-IcX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2Mf-gx-KFd"/>
+                <constraint firstItem="1hv-l6-ERE" firstAttribute="width" secondItem="YqV-A8-IcX" secondAttribute="width" id="6aT-RE-g2S"/>
+                <constraint firstItem="1hv-l6-ERE" firstAttribute="height" secondItem="YqV-A8-IcX" secondAttribute="height" id="AHk-bm-Mtd"/>
                 <constraint firstItem="jda-gO-BWn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="T7K-U2-OhB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YqV-A8-IcX" secondAttribute="trailing" id="TSg-LD-YZb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jda-gO-BWn" secondAttribute="bottom" constant="12" id="isx-fz-VGD"/>
+                <constraint firstItem="1hv-l6-ERE" firstAttribute="centerX" secondItem="YqV-A8-IcX" secondAttribute="centerX" id="mgs-cM-ZeC"/>
+                <constraint firstItem="1hv-l6-ERE" firstAttribute="centerY" secondItem="YqV-A8-IcX" secondAttribute="centerY" id="oVw-wO-SZs"/>
                 <constraint firstItem="YqV-A8-IcX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rzg-iZ-i9L"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YqV-A8-IcX" secondAttribute="bottom" id="xgr-zl-ASB"/>
             </constraints>

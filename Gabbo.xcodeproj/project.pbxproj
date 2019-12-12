@@ -17,6 +17,7 @@
 		452414AC2398998A0011A884 /* VideoChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452414AA2398998A0011A884 /* VideoChatViewController.xib */; };
 		454EA4B823A0922400D839B4 /* TwilioSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454EA4B723A0922400D839B4 /* TwilioSettings.swift */; };
 		45988BE22399B1A500BDA10E /* GabboTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45988BE12399B1A500BDA10E /* GabboTableViewController.swift */; };
+		459D299623A20DC6001AEC47 /* ChatLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459D299523A20DC6001AEC47 /* ChatLoadingView.swift */; };
 		45FD9C602398A5C3009770F2 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */; };
 		45FD9C612398A5C3009770F2 /* HomeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */; };
 		45FD9C642398B10E009770F2 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FD9C622398B10E009770F2 /* HomeTableViewCell.swift */; };
@@ -55,6 +56,7 @@
 		452414AA2398998A0011A884 /* VideoChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoChatViewController.xib; sourceTree = "<group>"; };
 		454EA4B723A0922400D839B4 /* TwilioSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwilioSettings.swift; sourceTree = "<group>"; };
 		45988BE12399B1A500BDA10E /* GabboTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GabboTableViewController.swift; sourceTree = "<group>"; };
+		459D299523A20DC6001AEC47 /* ChatLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLoadingView.swift; sourceTree = "<group>"; };
 		45FD9C5E2398A5C3009770F2 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		45FD9C5F2398A5C3009770F2 /* HomeTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewController.xib; sourceTree = "<group>"; };
 		45FD9C622398B10E009770F2 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				452414A92398998A0011A884 /* VideoChatViewController.swift */,
 				452414AA2398998A0011A884 /* VideoChatViewController.xib */,
+				459D299523A20DC6001AEC47 /* ChatLoadingView.swift */,
 			);
 			path = VideoChat;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45FD9C682398B7E7009770F2 /* ProfileTableViewController.swift in Sources */,
+				459D299623A20DC6001AEC47 /* ChatLoadingView.swift in Sources */,
 				45FD9C702398EA3C009770F2 /* PrivateConstants.swift in Sources */,
 				45FD9C6C2398BB76009770F2 /* ProfileTableViewCell.swift in Sources */,
 				454EA4B823A0922400D839B4 /* TwilioSettings.swift in Sources */,
